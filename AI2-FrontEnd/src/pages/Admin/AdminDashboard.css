@@ -1,0 +1,134 @@
+/* ===== Layout base ===== */
+.admin-dashboard {
+  min-height: 100vh;
+  background-color: var(--bg, #f6f8fb);
+  color: var(--text, #0b1220);
+}
+
+/* ===== BANNER EDGE-TO-EDGE ===== */
+.admin-banner {
+  width: 100%;
+  padding: 32px 16px;
+  background: radial-gradient(circle at top left, #a0e4ff 0%, #0072ff 40%, #001a4d 100%);
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* centra o conteúdo do banner */
+.banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.admin-title {
+  margin: 0 0 16px 0;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* stats dentro do banner */
+.banner-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+/* cada StatsCard dentro do banner → fundo branco e texto escuro */
+.banner-stat .stats-card {
+  background: #ffffff;
+  color: #111; /* força texto escuro */
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  border-radius: 12px;
+}
+.banner-stat .stats-card h4 { color: #444; }
+.banner-stat .stats-card p { color: #111; }
+.banner-stat .stats-card small { color: #28a745; }
+
+/* ===== Conteúdo central ===== */
+.admin-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* containers reutilizados */
+.stats-container,
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* fallback para cards genéricos */
+.stats-card,
+.course-card {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 220px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  color: #111; /* garante texto escuro também fora do banner */
+}
+
+/* Gráfico */
+.chart-container {
+  margin-top: 8px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Últimos utilizadores */
+.latest-users { margin-top: 32px; }
+
+.latest-users table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.latest-users th, .latest-users td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.latest-users thead th {
+  background: #f3f4f6;
+  font-weight: 700;
+}
+
+/* Cursos */
+.courses-container {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* Loading */
+.loading {
+  color: var(--subtext, #6b7280);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1024px) {
+  .chart-container { max-width: 100%; }
+}
+
+@media (max-width: 600px) {
+  .admin-title { font-size: 1.6rem; }
+  .latest-users table,
+  .latest-users th,
+  .latest-users td {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .latest-users table { display: block; overflow-x: auto; white-space: nowrap; }
+}

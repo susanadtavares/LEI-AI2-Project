@@ -1,0 +1,268 @@
+/* =========================
+   GLOBAL – sem scroll
+   ========================= */
+html, body{
+  height:100%;
+  overflow:hidden;                 /* 🔒 bloqueia scroll da página inteira */
+}
+
+/* =========================
+   Tokens / tema
+   ========================= */
+:root{
+  --fh-bg: #f7f9fc;
+  --fh-card: #fff;
+  --fh-text: #111827;
+  --fh-muted:#6b7280;
+  --fh-line:#e5e7eb;
+
+  --fh-brand:#2e5090;              /* azul do site (barrinha lateral do ativo) */
+  --fh-radius:14px;
+  --fh-shadow:0 8px 20px rgba(0,0,0,.06);
+
+  /* ====== ⬇️ FAIXA BRANCA DA SIDEBAR (LARGURA) ⬇️ */
+  --fh-rail-w: 280px;
+
+  --fh-nav-h: 88px;                /* altura da navbar */
+  --fh-shell-pad: 19px;
+
+  /* folgas para a rail não “tocar” a navbar/rodapé */
+  --fh-rail-gap-top: 12px;
+  --fh-rail-gap-bottom: 0px;
+}
+
+/* ================= Página / layout base ================= */
+.fh-page{
+  min-height:100vh;
+  background: var(--fh-bg);
+  color: var(--fh-text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+  height:100vh;                    /* ocupa a viewport */
+  overflow:hidden;                 /* 🔒 sem scroll dentro da page */
+}
+
+/* compensa a rail fixa com padding-left */
+.fh-shell{
+  position: relative;
+  padding: var(--fh-shell-pad);
+  padding-left: calc(var(--fh-rail-w) + var(--fh-shell-pad) + 12px);
+  overflow:hidden;                 /* 🔒 sem scroll no content wrapper */
+}
+
+/* ================= Sidebar fixa e QUADRADA ================= */
+.fh-rail{
+  position: fixed;
+  left: 0;
+  top: calc(var(--fh-nav-h) + var(--fh-rail-gap-top));
+  width: var(--fh-rail-w);
+  height: calc(100vh - var(--fh-nav-h) - var(--fh-rail-gap-top) - var(--fh-rail-gap-bottom));
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  overflow:hidden;
+}
+
+.fh-rail-inner{
+  height: 100%;
+  display:flex;
+  flex-direction: column;
+  padding: 14px 10px;
+  overflow:hidden;
+}
+
+.fh-cat-list{
+  list-style: none;
+  margin: 0;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow:hidden;
+}
+
+.fh-cat-item{ position: relative; }
+
+.fh-cat-chip{
+  position: relative;
+  padding: 12px 14px;
+  background: transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s ease, box-shadow .2s ease, transform .08s ease;
+  display:flex; align-items:center;
+}
+.fh-cat-chip:hover{ background: rgba(46,80,144,.06); }
+.fh-cat-label{ font-weight: 600; letter-spacing:.1px; }
+
+.fh-cat-chip.is-active{
+  background: rgba(57, 99, 157, 0.15);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.fh-cat-chip.is-active::after{
+  content:"";
+  position:absolute;
+  right:-8px;
+  top:10px;
+  bottom:10px;
+  width:4px;
+  background: var(--fh-brand);
+  border-radius: 6px;
+}
+
+/* Rodapé rail */
+.fh-rail-footer{ margin-top:auto; padding: 10px 8px 16px; }
+.fh-rail-action{
+  display:block; width:100%; text-align:center;
+  padding:10px 14px; background:#39639D; color:#fff;
+  border-radius:12px; text-decoration:none; font-weight:400;
+  transition: filter .2s ease, transform .08s ease;
+}
+.fh-rail-action:hover{ filter:brightness(.95); transform:translateY(-1px); }
+
+/* ================= Conteúdo ================= */
+.fh-stage{
+  min-width:0;
+  height: calc(100vh - var(--fh-nav-h) - (var(--fh-shell-pad) * 2));
+  overflow:hidden;
+}
+
+/* ---------- HERO ---------- */
+.fh-hero{
+  position: relative;
+  height: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.fh-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
+.fh-hero::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:42%;
+  background: linear-gradient(to top, rgba(17,24,39,.55), rgba(17,24,39,0));
+  pointer-events:none;
+}
+
+/* Título sobre o banner */
+.fh-area-title{
+  position: relative;
+  margin: 0;
+  transform: translateY(-58px);
+  left: 16px;
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight:700;
+  text-shadow: 0 2px 6px rgba(0,0,0,.35);
+  pointer-events:none;
+}
+
+/* ---------- Secção Áreas ---------- */
+/* ⇣ agora com a MESMA cor do fundo e sem borda/sombra */
+.fh-areas{
+  margin-top: 0;
+  padding: 10px 0 14px;        /* mantém respiro vertical */
+  border-radius: 0;            /* sem container arredondado */
+  background: var(--fh-bg);    /* mesma cor do fundo */
+  box-shadow: none;            /* remove a borda/sombra interna */
+  border: none;                /* garante sem linha */
+}
+
+/* chip “Áreas” */
+.fh-areas-head{
+  display:inline-block;
+  font-weight: 600;
+  color: var(--fh-brand);
+  background: #e9effb;
+  border-radius: 999px;
+  padding: 6px 12px;
+  margin: 0 0 12px 4px;
+  font-size: .95rem;
+  letter-spacing:.2px;
+  box-shadow: inset 0 0 0 1px rgba(46,80,144,.08);
+}
+
+.fh-areas-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  overflow:hidden;
+}
+
+/* ===== Cards com sweep azul + barrinha com glow ===== */
+.fh-area-row{
+  position:relative;
+  background:
+    linear-gradient(90deg,
+      rgba(57,99,157,.10) 0%,
+      rgba(57,99,157,.05) 40%,
+      rgba(57,99,157,0) 70%) left / 0% 100% no-repeat,
+    linear-gradient(180deg, #fbfdff, #ffffff);
+  border:1px solid #e6edf7;
+  border-radius:14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.04);
+  padding: 20px 52px 20px 20px;
+  min-height: 68px;
+  cursor:pointer;
+  will-change: transform, background-size;
+  transition:
+    background-size .25s ease,
+    transform .1s ease,
+    box-shadow .2s ease,
+    border-color .2s ease,
+    filter .2s ease;
+}
+.fh-area-row::before{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0;
+  width:0;
+  border-radius:14px 0 0 14px;
+  background: var(--fh-brand);
+  box-shadow: 0 0 0 rgba(57,99,157,0);
+  transition: width .16s ease, box-shadow .2s ease;
+}
+.fh-area-row:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  border-color:#d8e3f5;
+  background-size: 100% 100%;
+}
+.fh-area-row:hover::before{
+  width:6px;
+  box-shadow: 0 0 12px rgba(57,99,157,.28);
+}
+
+/* seta à direita */
+.fh-area-row::after{
+  content: "›";
+  position:absolute; right:16px; top:50%;
+  transform: translateY(-50%);
+  font-size: 22px; line-height: 1;
+  color: #39639D; opacity: .9;
+  transition: transform .1s ease, opacity .2s ease, text-shadow .2s ease;
+}
+.fh-area-row:hover::after{
+  transform: translateY(-50%) translateX(2px);
+  text-shadow: 0 0 12px rgba(57,99,157,.25);
+}
+
+/* texto do card */
+.fh-area-name{
+  color: var(--fh-text);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  text-shadow: none;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.fh-empty{ color: var(--fh-muted); text-align:center; padding:10px; }
+
+/* ================= Responsivo ================= */
+@media (max-width: 980px){
+  .fh-shell{ padding-left: var(--fh-shell-pad); overflow:hidden; }
+  .fh-rail{ position: static; width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+  .fh-stage{ height:auto; }
+}

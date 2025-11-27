@@ -1,0 +1,228 @@
+/* ===== Pendentes – look tipo Figma (apenas UI) ===== */
+
+:root{
+  --bg:#f7f9fc; --text:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  --card:#fff;
+  --ok:#16a34a; --ok-h:#15803d;          /* verde */
+  --warn:#ef4444; --warn-h:#dc2626;      /* vermelho */
+  --focus:#1e40af;
+
+  /* Marca */
+  --brand:#39639D;
+
+  /* Título (duas linhas sobrepostas) */
+  --h2-size: 1.5rem;
+  --title-underline:#111827;
+  --h2-underline-gap: 1.1rem;
+
+  /* Layout da tabela */
+  --table-width: 96%;
+  --table-top-gap: 1.75rem;
+
+  /* Linhas da tabela */
+  --row-gap: 14px;
+  --row-vpad: 20px;
+  --row-hpad: 24px;
+  --row-radius: 10px;
+  --avatar-size: 40px;
+
+  /* Paginação */
+  --page-gap: 8px;
+  --page-height: 36px;
+  --page-pad-x: 12px;
+  --pagination-upshift: -28px;
+}
+
+.pagina-pendentes{
+  min-height:100vh;
+  /* 🔥 menos espaço em cima (antes era 2rem, agora 1rem) */
+  padding:1rem clamp(1rem,5vw,4rem) 2rem;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.section{ margin-top:1.25rem; }
+
+/* Título com duas linhas sobrepostas */
+.section h2{
+  font-size:var(--h2-size);
+  font-weight:600;
+  margin:0 0 .9rem;
+  color:var(--text);
+  position:relative;
+  padding-bottom: var(--h2-underline-gap);
+  text-align:left; /* alinhado à esquerda */
+}
+.section h2::after{ content:""; position:absolute; left:0; bottom:0; height:1px; width:100%; background:var(--line); }
+.section h2 .heading-text{ position:relative; display:inline-block; }
+.section h2 .heading-text::after{
+  content:""; position:absolute; left:0; bottom: calc(-1 * var(--h2-underline-gap));
+  width:100%; height:3px; background:var(--title-underline); border-radius:2px;
+}
+
+/* Cartão / Tabela */
+.table-wrapper{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+  overflow:hidden;
+  width:var(--table-width);
+  margin: var(--table-top-gap) auto 2rem;
+}
+
+/* Tabela “linhas-cartão” */
+table{ width:100%; border-collapse:separate; border-spacing:0 var(--row-gap); background:var(--card); }
+
+/* Cabeçalho */
+thead tr{
+  background: rgba(57, 99, 157, 0.15);
+  background: color-mix(in srgb, var(--brand) 15%, #fff);
+}
+th{
+  font-weight:600; font-size:.95rem; color:var(--muted);
+  padding:14px 20px; text-align:left; border-bottom:1px solid var(--line);
+}
+.table-wrapper thead th{ color:#39639D; }
+
+tbody tr{ background:#fff; border:1px solid var(--line); border-radius:var(--row-radius); box-shadow:0 1px 3px rgba(0,0,0,.04); }
+td{ padding:var(--row-vpad) var(--row-hpad); font-size:.95rem; color:var(--text); border-bottom:0; }
+
+/* Status (iguais às cores dos botões, sem negrito) */
+.status{ font-weight:400; }
+.status.aprovado{  color: var(--ok);   }
+.status.rejeitado{ color: var(--warn); }
+
+/* Célula Nome com avatar */
+.user-cell{ display:inline-flex; align-items:center; gap:12px; }
+.avatar{
+  width:var(--avatar-size); height:var(--avatar-size); border-radius:999px;
+  background: color-mix(in srgb, var(--brand) 15%, #fff);
+  color: var(--brand);
+  display:grid; place-items:center; font-weight:700; font-size:.95rem;
+}
+.user-name{ font-weight:600; }
+
+/* Botões de ação – base ghost azul */
+.acoes-cell{ display:inline-flex; align-items:center; gap:10px; }
+.btn-aprovar, .btn-rejeitar{
+  display:inline-flex; align-items:center; gap:8px;
+  height:36px; padding:8px 14px;
+  border-radius:10px;
+  border:1.5px solid var(--brand);
+  background:#fff;
+  color:var(--brand);
+  font-weight:600; font-size:.92rem;
+  cursor:pointer;
+  transition: transform .08s ease, background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+  margin-left:10px;
+}
+
+/* HOVER personalizado (verde / vermelho) */
+.btn-aprovar:hover{
+  transform: translateY(-1px);
+  border-color: var(--ok);
+  color: var(--ok);
+  background: color-mix(in srgb, var(--ok) 12%, #fff);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--ok) 20%, transparent);
+}
+.btn-rejeitar:hover{
+  transform: translateY(-1px);
+  border-color: var(--warn);
+  color: var(--warn);
+  background: color-mix(in srgb, var(--warn) 12%, #fff);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--warn) 20%, transparent);
+}
+
+/* ACTIVE */
+.btn-aprovar:active{
+  transform:none;
+  background: color-mix(in srgb, var(--ok) 18%, #fff);
+  border-color: var(--ok);
+}
+.btn-rejeitar:active{
+  transform:none;
+  background: color-mix(in srgb, var(--warn) 18%, #fff);
+  border-color: var(--warn);
+}
+
+/* FOCUS */
+.btn-aprovar:focus, .btn-rejeitar:focus{
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* disabled */
+.btn-aprovar:disabled, .btn-rejeitar:disabled{
+  opacity:.55; cursor:not-allowed; transform:none; box-shadow:none;
+}
+
+/* Paginação */
+.pagination-area{
+  width:var(--table-width);
+  margin: calc(.25rem + var(--pagination-upshift)) auto 0;
+  display:flex; justify-content:flex-end;
+}
+.pagination{
+  list-style:none; display:flex; gap:var(--page-gap); padding:0; margin:0;
+}
+.page-item .page-link{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width: var(--page-height);
+  height: var(--page-height);
+  padding: 0 var(--page-pad-x);
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:#fff;
+  color: var(--brand);
+  font-weight:600; font-size:.9rem;
+  text-decoration:none;
+  transition: transform .08s ease, background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.page-item .page-link:hover{
+  transform: translateY(-1px);
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 10%, #fff);
+  color: var(--brand);
+}
+.page-item .page-link:active{
+  transform:none;
+  background: color-mix(in srgb, var(--brand) 7%, #fff);
+  border-color: var(--brand);
+}
+.page-item .page-link:focus,
+.page-item .page-link:focus-visible{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.page-item.active .page-link{
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 15%, #fff);
+  color: var(--brand);
+}
+.page-item.disabled .page-link{
+  opacity: .45; color: var(--muted);
+  cursor: not-allowed; transform:none; border-color: var(--line); background:#fff;
+}
+
+/* utilidade SR-only */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+
+/* Mobile */
+@media (max-width:860px){
+  .table-wrapper{ width:100%; margin:1.25rem 0 1rem; box-shadow:none; border:0; background:transparent; }
+  table{ display:block; border-spacing:0; }
+  thead{ display:none; }
+  tbody tr{ display:block; margin:0 0 14px; border-radius:12px; }
+  td{ display:flex; justify-content:space-between; gap:12px; padding:16px 18px; }
+  td::before{ content:attr(data-label); font-weight:600; color:var(--muted); }
+  .acoes-cell{ width:100%; justify-content:flex-end; }
+  .btn-aprovar, .btn-rejeitar{ height:34px; padding:6px 12px; font-size:.88rem; margin-left:8px; }
+
+  .pagination-area{ width:100%; justify-content:center; margin: calc(.25rem + var(--pagination-upshift)) 0 0; }
+  .page-item .page-link{ height:34px; min-width:34px; padding:0 10px; }
+}

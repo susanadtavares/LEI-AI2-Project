@@ -1,0 +1,112 @@
+.actions-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-btn {
+  --size: 36px;
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
+  background: #ffffff;              
+  border: 1px solid rgba(0,0,0,0.08); 
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  color: #4a5568;
+  cursor: pointer;
+  line-height: 0;
+  transition: transform .12s ease, background-color .15s ease, box-shadow .2s ease, color .15s ease;
+}
+
+.menu-btn:hover {
+  background: #f7f9fc;
+  color: #2e5090;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.menu-btn:active { transform: scale(0.96); }
+
+.menu-btn:focus-visible {
+  outline: 2px solid #2e5090;
+  outline-offset: 2px;
+}
+
+.utilizador-actions-menu {
+  --radius: 12px;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  padding: 6px;
+  background: #ffffff;                
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.14), 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: menuIn .14s ease-out;
+  transform-origin: top right;
+}
+
+.utilizador-actions-menu::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 14px;
+  width: 12px;
+  height: 12px;
+  background: #ffffff;               
+  border-left: 1px solid rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.utilizador-actions-menu button[role="menuitem"] {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  color: #1f2937;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, transform .06s ease;
+}
+
+.utilizador-actions-menu button[role="menuitem"] svg {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.utilizador-actions-menu button[role="menuitem"]:hover {
+  background: #f3f6ff;
+  color: #24407e;
+}
+
+.utilizador-actions-menu button[role="menuitem"]:active {
+  transform: translateY(1px);
+}
+
+.utilizador-actions-menu button[role="menuitem"]:focus-visible {
+  outline: 2px solid #2e5090;
+  outline-offset: 2px;
+}
+
+.utilizador-actions-menu button.danger:hover {
+  background: #fff5f5;
+  color: #b91c1c;
+}
+
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}

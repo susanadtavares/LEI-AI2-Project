@@ -1,0 +1,72 @@
+.perfil-formador {
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #0056a3, #3c87d4);
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.info h2 {
+  margin-bottom: 0.3rem;
+}
+
+.stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.stats div {
+  text-align: left;
+}
+
+.foto-area {
+  text-align: center;
+}
+
+.foto {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 0.8rem;
+}
+
+.btn-mensagem {
+  background-color: white;
+  color: #0056a3;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.descricao {
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+.cartao-info {
+  margin-top: 2rem;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-width: 600px;
+}
+
+.cartao-info h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.cartao-info ul {
+  margin-top: 0;
+  padding-left: 1.2rem;
+}

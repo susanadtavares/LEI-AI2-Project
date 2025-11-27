@@ -1,0 +1,135 @@
+:root {
+  --brand: #2e5090;
+  --ink: #0b1220;
+  --muted: #8a93a4;
+  --line: #e5e9f2;
+  --bg-soft: #f2f5fb;
+}
+
+.gestao-cursos {
+  padding: 2rem;
+}
+
+/* Header */
+.gestao-cursos-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* === Pílula de ordenação (compacta) === */
+.sort-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .06);
+}
+
+.sort-chip,
+.sort-dir {
+  border: none;
+  background: transparent;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform .1s ease, background .15s ease, color .15s ease;
+  color: var(--muted);
+}
+
+.sort-chip:hover,
+.sort-dir:hover {
+  background: var(--bg-soft);
+  color: var(--ink);
+}
+
+.sort-chip.active {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(46, 80, 144, .25);
+}
+
+.sort-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--line);
+  margin: 0 4px;
+  border-radius: 1px;
+}
+
+/* Botão de adicionar */
+.add-curso-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--brand) !important;
+  color: #fff !important;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .2s ease, transform .15s ease;
+}
+.add-curso-btn:hover {
+  background-color: #244075;
+  transform: scale(1.05);
+}
+.add-curso-btn .material-symbols-outlined {
+  font-size: 24px;
+}
+
+/* Grid dos cards */
+.gestao-cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Ícones herdam a cor dos botões */
+.material-symbols-outlined {
+  color: inherit !important;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 500,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Tweak fino para centrar os chips */
+.sort-pill {
+  --chip-size: 36px;      /* tamanho do botão redondo */
+  --icon-size: 20px;      /* tamanho do ícone */
+  --icon-nudge-y: -0.5px; /* ajuste óptico vertical (-0.5 a -1px) */
+}
+
+.sort-chip,
+.sort-dir {
+  width: var(--chip-size);
+  height: var(--chip-size);
+  padding: 0; /* evita desalinhamentos */
+  display: inline-flex;         /* em vez de grid */
+  align-items: center;
+  justify-content: center;
+}
+
+.sort-chip .material-symbols-outlined,
+.sort-dir  .material-symbols-outlined {
+  font-size: var(--icon-size);
+  line-height: 1;   /* remove baseline estranho */
+  display: block;   /* evita herdar line-height do botão */
+  transform: translateY(var(--icon-nudge-y)); /* ajuste óptico */
+}

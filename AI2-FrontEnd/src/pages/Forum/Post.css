@@ -1,0 +1,31 @@
+
+
+.pagina-posts {
+  display: flex;
+  gap: 20px;
+  min-height: 100vh; 
+}
+
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #f0f0f0;
+  height: 100vh; 
+}
+
+/*botao add post*/
+.btn-add-post {
+  background-color: #9393933c;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  margin-right: 6px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-add-post:hover {
+  background-color: #2e5090c7;
+}

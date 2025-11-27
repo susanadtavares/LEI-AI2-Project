@@ -1,0 +1,174 @@
+/* ================== Tokens / tema (escopo formador) ================== */
+:root{
+  --fo-bg: #f7f9fc;
+  --fo-text: #1f2937;
+  --fo-muted: #6b7280;
+  --fo-line: #e5e7eb;
+  --fo-brand: #39639D;
+
+  --fo-page-width: 96%;
+  --fo-card-bg: #fff;
+  --fo-card-radius: 14px;
+  --fo-card-shadow: 0 4px 18px rgba(0,0,0,.06);
+
+  --fo-h2-size: 1.45rem;
+  --fo-title-underline: #111827;
+
+  --fo-field-width: 380px;
+}
+
+/* ================== Página ================== */
+.formador-add-page{
+  background: var(--fo-bg);
+  min-height: 100vh;
+  padding: 1rem clamp(1rem, 5vw, 4rem) 2rem;
+  color: var(--fo-text);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.formador-add{
+  width: var(--fo-page-width);
+  margin: 0 auto;
+}
+
+/* ================== Título com barras (coladas) ================== */
+.formador-add h2{
+  font-size: var(--fo-h2-size);
+  font-weight: 600;
+  color: var(--fo-text);
+  margin: 1rem 0 1.1rem;
+  position: relative;
+  padding-bottom: 0;
+  text-align: left;
+}
+.formador-add h2::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height:1px; background: var(--fo-line);
+}
+.formador-add__heading{
+  position:relative; display:inline-block;
+  padding-bottom: 6px; /* pequeno respiro */
+  border-bottom: 2px solid var(--fo-title-underline);
+  line-height: 1.1;
+}
+
+/* ================== Card do formulário ================== */
+.formador-add__card{
+  background: var(--fo-card-bg);
+  border: 1px solid var(--fo-line);
+  border-radius: var(--fo-card-radius);
+  box-shadow: var(--fo-card-shadow);
+  max-width: 1040px;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 3.5rem 4rem;
+  min-height: clamp(520px, 60vh, 1000px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+
+/* ================== Grelha ================== */
+.formador-add__row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8rem;
+  row-gap: 3.5rem;
+  margin-bottom: 2.5rem;
+  width:100%;
+}
+.formador-add__group{
+  width:100%;
+  max-width: var(--fo-field-width);
+  margin:0 auto;
+  display:flex; flex-direction:column; align-items:stretch;
+}
+
+/* ================== Labels ================== */
+.formador-add__group label{
+  margin: 0 0 .7rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--fo-brand);
+  text-align:left;
+}
+.formador-add__req{ color:#e63946; font-weight:700; margin-left:2px; }
+
+/* ================== Inputs / Selects ================== */
+.formador-add input,
+.formador-add select{
+  width:100%;
+  padding:1.3rem 1.35rem;
+  border-radius:12px;
+  border:1px solid var(--fo-line);
+  background:#f3f6fa;
+  font-size:1.08rem;
+  color:var(--fo-text);
+  transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  text-align:left;
+}
+.formador-add input::placeholder{ color:#9ca3af; }
+
+.formador-add input:focus,
+.formador-add input:focus-visible,
+.formador-add select:focus,
+.formador-add select:focus-visible{
+  outline:none;
+  border-color:var(--fo-brand);
+  box-shadow:0 0 0 3px rgba(57,99,157,.18);
+  background:#fff;
+}
+
+/* ================== Erros ================== */
+.formador-add__erro-input{
+  border:1px solid var(--fo-line) !important;
+  background:#f3f6fa !important;
+  box-shadow:none !important;
+}
+.formador-add__msg-erro{
+  color:#e74c3c;
+  font-size:.92rem;
+  margin-top:.45rem;
+  text-align:center;
+}
+
+/* ================== Botões ================== */
+.formador-add__actions{
+  width:100%;
+  max-width: var(--fo-field-width);
+  margin-left:auto;
+  display:flex; justify-content:flex-end; gap:1rem;
+}
+
+.formador-add__btn{
+  height:45px;
+  padding:0 16px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:500;
+  font-size:1rem;
+  transition: background-color .2s ease, transform .08s ease;
+}
+.formador-add__btn--ghost{
+  background:#e5e7eb; color:#4b5563;
+}
+.formador-add__btn--ghost:hover{
+  background:#d1d5db; transform: translateY(-1px);
+}
+.formador-add__btn--primary{
+  background: var(--fo-brand); color:#fff;
+}
+.formador-add__btn--primary:hover{
+  background:#2f5487; transform: translateY(-1px);
+}
+.formador-add__btn:disabled{
+  opacity:.7; cursor:not-allowed; transform:none;
+}
+
+/* ================== Responsivo ================== */
+@media (max-width: 1180px){
+  .formador-add__card{ padding:2rem 1.25rem; max-width:640px; }
+  .formador-add__row{ grid-template-columns:1fr; row-gap:2rem; column-gap:0; }
+  .formador-add__group{ max-width:480px; }
+  .formador-add__actions{ justify-content:center; }
+}

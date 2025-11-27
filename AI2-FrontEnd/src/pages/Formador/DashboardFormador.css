@@ -1,0 +1,120 @@
+/* ===== Layout base ===== */
+.dashboard {
+  min-height: 100vh;
+  background-color: var(--bg, #f6f8fb);
+  color: var(--text, #0b1220);
+}
+
+/* Conteúdo central (sem o banner) */
+.dashboard-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+/* ===== BANNER EDGE-TO-EDGE ===== */
+.dashboard-banner {
+  width: 100%;
+  padding: 32px 16px;
+  background: radial-gradient(circle at top left, #a0e4ff 0%, #0072ff 40%, #001a4d 100%);
+  color: #ffffff;
+  margin: 0 0 24px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.banner-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+}
+
+/* ===== Stats dentro do banner ===== */
+.dashboard-stats {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: rgba(28, 30, 47, 0.6);
+  color: #eaf2ff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.stat-icon svg {
+  font-size: 18px; /* 16–20 fica nice */
+}
+
+.stat-info { display: grid; gap: 2px; }
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #dbeafe;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+/* ===== Secção "Os meus Cursos" ===== */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+/* Cards dos cursos */
+.gestao-cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+/* Loader */
+.dashboard-loader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  min-height: 140px;
+  color: #2e5090;
+  font-weight: 500;
+}
+
+/* Corrige contraste dos ícones no banner */
+.stat-icon {
+  background: #f1f5ff;        /* leve azul em vez de branco puro */
+  color: #2e5090;             /* cor do ícone */
+  border: 1px solid #e3e8ff;  /* define contorno suave */
+}
+
+.stat-icon svg {
+  color: inherit;             /* usa a cor acima */
+  font-size: 20px;            /* +2px para melhor leitura */
+}

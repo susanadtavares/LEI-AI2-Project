@@ -1,0 +1,182 @@
+/* ================== Tokens / tema (escopo formandos) ================== */
+:root{
+  --fa-bg: #f7f9fc;
+  --fa-text: #1f2937;
+  --fa-muted: #6b7280;
+  --fa-line: #e5e7eb;
+  --fa-brand: #39639D;
+
+  --fa-page-width: 96%;
+  --fa-card-bg: #fff;
+  --fa-card-radius: 14px;
+  --fa-card-shadow: 0 4px 18px rgba(0,0,0,.06);
+
+  /* ↓ título mais pequeno e mais próximo da barra */
+  --fa-h2-size: 1.45rem;
+  --fa-h2-gap: 0.9rem;
+
+  --fa-title-underline: #111827;
+
+  --fa-field-width: 380px;
+}
+
+/* ================== Página ================== */
+.formando-add-page{
+  background: var(--fa-bg);
+  min-height: 100vh;
+  padding: 1rem clamp(1rem, 5vw, 4rem) 2rem;
+  color: var(--fa-text);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.formando-add{
+  width: var(--fa-page-width);
+  margin: 0 auto;
+}
+
+/* ================== Título com barras ================== */
+.formando-add h2{
+  font-size: var(--fa-h2-size);
+  font-weight: 600;
+  color: var(--fa-text);
+  margin: 1rem 0 1.1rem;
+  position: relative;
+  padding-bottom: var(--fa-h2-gap);
+  text-align: left;
+}
+.formando-add h2::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:0;
+  height:1px; background: var(--fa-line);
+}
+.formando-add__heading{
+  position:relative; display:inline-block;
+}
+.formando-add__heading::after{
+  content:"";
+  position:absolute; left:0;
+  bottom: calc(-1 * var(--fa-h2-gap));
+  width: 100%; height: 3px;
+  background: var(--fa-title-underline);
+  border-radius: 2px;
+}
+
+/* ================== Card do formulário ================== */
+.formando-add__card{
+  background: var(--fa-card-bg);
+  border: 1px solid var(--fa-line);
+  border-radius: var(--fa-card-radius);
+  box-shadow: var(--fa-card-shadow);
+  max-width: 1040px;
+  width: 100%;
+  margin: 1rem auto;
+  padding: 3.5rem 4rem;
+  min-height: clamp(520px, 60vh, 1000px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+
+/* ================== Grelha ================== */
+.formando-add__row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 8rem;
+  row-gap: 3.5rem;
+  margin-bottom: 2.5rem;
+  width:100%;
+}
+.formando-add__group{
+  width:100%;
+  max-width: var(--fa-field-width);
+  margin:0 auto;
+  display:flex; flex-direction:column; align-items:stretch;
+}
+
+/* ================== Labels ================== */
+.formando-add__group label{
+  margin: 0 0 .7rem;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--fa-brand);
+  text-align:left;
+}
+.formando-add__req{ color:#e63946; font-weight:700; margin-left:2px; }
+
+/* ================== Inputs / Selects (escopados) ================== */
+.formando-add input,
+.formando-add select{
+  width:100%;
+  padding:1.3rem 1.35rem;
+  border-radius:12px;
+  border:1px solid var(--fa-line);
+  background:#f3f6fa;
+  font-size:1.08rem;
+  color:var(--fa-text);
+  transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+  text-align:left;
+}
+.formando-add input::placeholder{ color:#9ca3af; }
+
+.formando-add input:focus,
+.formando-add input:focus-visible,
+.formando-add select:focus,
+.formando-add select:focus-visible{
+  outline:none;
+  border-color:var(--fa-brand);
+  box-shadow:0 0 0 3px rgba(57,99,157,.18);
+  background:#fff;
+}
+
+/* ================== Erros ================== */
+.formando-add__erro-input{
+  border:1px solid var(--fa-line) !important;
+  background:#f3f6fa !important;
+  box-shadow:none !important;
+}
+.formando-add__msg-erro{
+  color:#e74c3c;
+  font-size:.92rem;
+  margin-top:.45rem;
+  text-align:center;
+}
+
+/* ================== Botões ================== */
+.formando-add__actions{
+  width:100%;
+  max-width: var(--fa-field-width);
+  margin-left:auto;
+  display:flex; justify-content:flex-end; gap:1rem;
+}
+
+.formando-add__btn{
+  height:45px;
+  padding:0 16px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:500;
+  font-size:1rem;
+  transition: background-color .2s ease, transform .08s ease;
+}
+.formando-add__btn--ghost{
+  background:#e5e7eb; color:#4b5563;
+}
+.formando-add__btn--ghost:hover{
+  background:#d1d5db; transform: translateY(-1px);
+}
+.formando-add__btn--primary{
+  background: var(--fa-brand); color:#fff;
+}
+.formando-add__btn--primary:hover{
+  background:#2f5487; transform: translateY(-1px);
+}
+.formando-add__btn:disabled{
+  opacity:.7; cursor:not-allowed; transform:none;
+}
+
+/* ================== Responsivo ================== */
+@media (max-width: 1180px){
+  .formando-add__card{ padding:2rem 1.25rem; max-width:640px; }
+  .formando-add__row{ grid-template-columns:1fr; row-gap:2rem; column-gap:0; }
+  .formando-add__group{ max-width:480px; }
+  .formando-add__actions{ justify-content:center; }
+}

@@ -1,0 +1,237 @@
+:root {
+  --bg: #f0f4f8;
+  --text: #1a252f;
+  --muted: #5a6a7a;
+  --line: #d1dbe4;
+  --card: #ffffff;
+  --brand: #3b5998;
+  --brand-light: #e9eef6;
+  --accent: #2c5282;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1);
+  --red-border: #ff0000;
+
+  --table-width: 100%;
+  --table-top-gap: 2rem;
+  --row-gap: 10px;
+  --row-vpad: 14px;
+  --row-hpad: 18px;
+  --row-radius: 10px;
+
+  --transition: all 0.3s ease;
+}
+
+.pagina-forum-topics {
+  min-height: 100vh;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.forum-header {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid var(--red-border);
+}
+
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  transition: filter 0.3s ease;
+}
+
+.forum-header:hover .header-image {
+  filter: brightness(0.7);
+}
+
+.forum-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+  z-index: 1;
+}
+
+.area-title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.forum-content {
+  display: flex;
+  flex: 1;
+  margin-top: -60px;
+  z-index: 2;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--row-radius);
+  box-shadow: var(--shadow-light);
+  margin-top: 0;
+  min-height: calc(100vh - 250px);
+  overflow-y: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.topics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.topics-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.btn-add-topic {
+  padding: 10px 20px;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-add-topic:hover {
+  background: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.topics-table-wrapper {
+  width: 100%;
+}
+
+.topics-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 var(--row-gap);
+  background: var(--card);
+  border-radius: var(--row-radius);
+  box-shadow: var(--shadow-light);
+}
+
+.topics-table thead tr {
+  background: linear-gradient(to right, var(--brand-light), #ffffff);
+}
+
+.topics-table th {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--brand);
+  padding: var(--row-vpad) var(--row-hpad);
+  text-align: left;
+  border-bottom: 2px solid var(--line);
+}
+
+.topic-row {
+  transition: var(--transition);
+}
+
+.topic-row:hover {
+  background-color: var(--brand-light);
+}
+
+.topic-cell {
+  padding: var(--row-vpad) var(--row-hpad);
+  font-size: 1.05rem;
+  color: var(--text);
+  border-bottom: 1px solid var(--line);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-view-posts,
+.btn-edit-topic {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-view-posts {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-view-posts:hover {
+  background: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-edit-topic {
+  background: #f59e0b; 
+  color: #fff;
+}
+
+.btn-edit-topic:hover {
+  background: #d97706;
+  box-shadow: var(--shadow-hover);
+}
+
+.no-topics {
+  padding: 20px;
+  font-size: 1rem;
+  color: var(--muted);
+  text-align: center;
+  background: var(--brand-light);
+  border-radius: var(--row-radius);
+}
+
+@media (max-width: 860px) {
+  .forum-content {
+    flex-direction: column;
+    margin-top: 0;
+  }
+
+  .main-content {
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .topics-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .topic-cell {
+    padding: 12px;
+  }
+
+  .btn-add-topic {
+    padding: 8px 15px;
+  }
+}

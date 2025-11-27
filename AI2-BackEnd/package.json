@@ -1,0 +1,33 @@
+{
+  "name": "projeto",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "Estrutura do projeto por componentes:\r A. Backend (Node.js + SQL Server) Função:\r - Processa lógica, armazena e gere dados\r - Fornece API para frontends (web/mobile) consumirem Tecnologias:\r - Node.js: Ambiente de execução do servidor\r - Express: Framework para criar a API\r - MSSQL: Driver para conectar ao SQL Server\r - Nodemailer: Envio de emails (confirmação de registro)\r - JWT (JSON Web Tokens): Autenticação de utilizadores",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "node-cron": "^4.2.1",
+    "nodemailer": "^7.0.4",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-auto": "^0.8.8"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}

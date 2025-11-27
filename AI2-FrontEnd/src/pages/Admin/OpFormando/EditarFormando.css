@@ -1,0 +1,263 @@
+/* ===== Página ===== */
+.ef-page{
+  background:#f7f9fc;
+  min-height:100vh;
+  padding:2.5rem clamp(1rem,5vw,4rem) 3rem;
+  color:#1f2937;
+  font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;
+}
+
+/* ===== Container + tokens locais ===== */
+.editar-formando-ui{
+  --bg:#f7f9fc; --text:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+  --brand:#39639D; --danger:#e11d48;
+
+  --page-width:96%;
+  --card-bg:#fff; --card-radius:14px; --card-shadow:0 8px 26px rgba(0,0,0,.07);
+
+  --h2-size:1.55rem; --h2-gap:1.25rem; --title-underline:#111827;
+
+  --control-py:1.1rem; --control-px:1.25rem; --control-radius:12px; --control-fs:1.06rem;
+
+  --container-max:1360px;
+  --photo-col-width:420px;
+
+  width:var(--page-width);
+  margin:0 auto;
+}
+
+/* ===== Título com barras (preta = largura do texto; cinza = 100%) ===== */
+.editar-formando-ui h2{
+  font-size:var(--h2-size);
+  font-weight:600;
+  color:var(--text);
+  margin:1rem 0 1.6rem;          /* mais espaço abaixo do título */
+  padding-bottom:0;
+  position:relative;
+  text-align:left;
+  text-decoration:none;           /* sem sublinhado nativo */
+}
+
+/* barra PRETA apenas do tamanho do texto */
+.editar-formando-ui .ef-title{
+  display:inline-block;
+  padding-bottom:6px;             /* afasta as barras do texto (mais para baixo) */
+  border-bottom:2px solid var(--title-underline);
+  line-height:1.1;
+  position:relative;
+  z-index:1;
+}
+
+/* barra CINZA 100% imediatamente por baixo da preta */
+.editar-formando-ui h2::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;                       /* colada à preta */
+  height:1px;
+  background:var(--line);
+  z-index:0;
+}
+
+/* ===== Card ===== */
+.editar-formando-ui form{
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-radius:var(--card-radius);
+  box-shadow:var(--card-shadow);
+  max-width:var(--container-max);
+  width:100%;
+  margin:2.6rem auto 1rem;        /* baixa o conteúdo (mais espaço depois das barras) */
+  padding:3rem 4rem;
+  overflow:hidden;
+}
+
+/* ===== Grid principal ===== */
+.editar-formando-ui .ef-form-grid{
+  display:grid;
+  grid-template-columns: minmax(260px, var(--photo-col-width)) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items:stretch;
+}
+
+/* ===== Coluna da foto ===== */
+.editar-formando-ui .ef-photo-col{ width:100%; }
+.editar-formando-ui .ef-foto-preview{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+
+.editar-formando-ui .ef-avatar-click{
+  width: clamp(220px, 26vw, 280px);
+  height: clamp(220px, 26vw, 280px);
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid #e0e0e0;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+  cursor:pointer;
+  transition:transform .2s ease;
+}
+.editar-formando-ui .ef-avatar-click:hover{ transform:scale(1.04); }
+.editar-formando-ui .ef-avatar-click img{ width:100%; height:100%; object-fit:cover; }
+.editar-formando-ui .ef-circle{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#eee;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666;
+}
+
+/* Botões da foto */
+.editar-formando-ui .ef-foto-actions{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  width:100%;
+  align-items:center;
+  margin-top:10px;
+}
+.editar-formando-ui .ef-btn{
+  padding:var(--control-py) var(--control-px);
+  border-radius:var(--control-radius);
+  font-size:var(--control-fs);
+  line-height:1.1;
+  border:1px solid var(--line);
+  cursor:pointer;
+  transition:background-color .18s ease, border-color .18s ease, transform .08s ease;
+  width:auto;
+  min-width:230px;
+  text-align:center;
+}
+.editar-formando-ui .ef-btn-primary{
+  background:var(--brand) !important;
+  color:#fff;
+  border-color:var(--brand) !important;
+}
+.editar-formando-ui .ef-btn-primary:hover{
+  background:#2f5487 !important;
+  border-color:#2f5487 !important;
+  transform:translateY(-1px);
+}
+.editar-formando-ui .ef-btn-danger-outline{
+  background:#fff;
+  color:var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 55%, #fff);
+}
+.editar-formando-ui .ef-btn-danger-outline:hover{
+  background: color-mix(in srgb, var(--danger) 10%, #fff);
+  transform:translateY(-1px);
+}
+.editar-formando-ui .ef-btn:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+  transform:none;
+}
+
+/* ===== Coluna dos campos ===== */
+.editar-formando-ui .ef-fields-col{
+  width:100%;
+  min-width:0;
+  display:flex;
+  flex-direction:column;   /* mantém ações no fundo */
+}
+
+/* Linhas de campos */
+.editar-formando-ui .ef-form-row{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap:4rem;
+  row-gap:2rem;
+  margin-bottom:1.2rem;
+}
+.editar-formando-ui .ef-name-row{ grid-template-columns:1fr; }
+.editar-formando-ui .ef-form-group{ width:100%; }
+.editar-formando-ui .ef-form-group label{
+  margin:0 0 .55rem;
+  font-size:1.05rem;
+  font-weight:500;
+  color:var(--brand);
+}
+
+/* Inputs / selects */
+.editar-formando-ui input,
+.editar-formando-ui select{
+  width:100%;
+  padding:var(--control-py) var(--control-px);
+  border-radius:var(--control-radius);
+  border:1px solid var(--line);
+  background:#f3f6fa;
+  font-size:var(--control-fs);
+  color:#1f2937;
+  transition:border-color .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.editar-formando-ui input::placeholder{ color:#9ca3af; }
+.editar-formando-ui input:focus,
+.editar-formando-ui input:focus-visible,
+.editar-formando-ui select:focus,
+.editar-formando-ui select:focus-visible{
+  outline:none;
+  border-color:var(--brand);
+  box-shadow:0 0 0 3px rgba(57,99,157,.18);
+  background:#fff;
+}
+
+/* Erros */
+.editar-formando-ui .ef-msg-erro{
+  color:#e74c3c;
+  font-size:.92rem;
+  margin-top:.45rem;
+}
+.editar-formando-ui .ef-erro-input{
+  border:1px solid var(--line) !important;
+  background:#f3f6fa !important;
+  box-shadow:none !important;
+}
+
+/* ===== AÇÕES — descem e alinham com os botões da foto ===== */
+.editar-formando-ui .ef-actions-row{
+  grid-column: 2 / 3;
+  margin-top:auto;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  padding-top:4px;
+}
+.editar-formando-ui .ef-form-buttons{ display:flex; gap:12px; }
+.editar-formando-ui .ef-action-btn{
+  height:50px;
+  padding:0 24px;
+  min-width:120px;
+  border:none;
+  border-radius:var(--control-radius);
+  font-size:1rem;
+  cursor:pointer;
+  transition:background-color .2s ease, transform .08s ease;
+}
+.editar-formando-ui .ef-action-btn--ghost{ background:#e5e7eb; color:#4b5563; }
+.editar-formando-ui .ef-action-btn--ghost:hover{ background:#d1d5db; transform:translateY(-1px); }
+.editar-formando-ui .ef-action-btn--primary{ background:var(--brand); color:#fff; }
+.editar-formando-ui .ef-action-btn--primary:hover{ background:#2f5487; transform:translateY(-1px); }
+.editar-formando-ui .ef-action-btn:disabled{ opacity:.7; cursor:not-allowed; transform:none; }
+
+/* Placeholder do Nome centrado quando vazio (opcional) */
+.editar-formando-ui input[name="nome"]:placeholder-shown{ text-align:center; }
+
+/* ===== Responsivo ===== */
+@media (max-width:1180px){
+  .editar-formando-ui form{ padding:2rem 1.5rem; }
+  .editar-formando-ui .ef-form-row{ column-gap:2rem; }
+}
+@media (max-width:1100px){
+  .editar-formando-ui .ef-form-grid{ grid-template-columns:1fr; gap:2rem; }
+  .editar-formando-ui .ef-actions-row{ grid-column:1 / -1; justify-content:center; margin-top:0; }
+  .editar-formando-ui .ef-foto-actions .ef-btn{ width:100%; min-width:unset; }
+}
+@media (max-width:600px){
+  .editar-formando-ui .ef-avatar-click{ width:200px; height:200px; }
+}

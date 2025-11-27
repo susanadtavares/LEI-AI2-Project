@@ -1,0 +1,253 @@
+/* ====== DetalhesCursoFormando.css (apenas extras do formando) ====== */
+
+/* --- Abas (Aulas / Testes) --- */
+.det-curso .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 30px 0 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.det-curso .tabs button {
+  background: none;
+  border: none;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border-bottom: 3px solid transparent;
+  color: #374151;
+  transition: all 0.2s ease;
+}
+
+.det-curso .tabs button:hover {
+  opacity: 0.85;
+}
+
+.det-curso .tabs button.active {
+  border-bottom: 3px solid #2a6ca6; /* mesma paleta do hero */
+  color: #2a6ca6;
+}
+
+/* --- Conteúdo das abas --- */
+.det-curso .conteudo-tab {
+  padding: 0 0.5rem;
+}
+
+.det-curso .secao-aulas {
+  margin-top: 1rem;
+}
+
+/* --- Cartão de aula / teste --- */
+.det-curso .item-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #edf1f6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+  cursor: pointer;
+}
+
+.det-curso .item-tab:hover {
+  box-shadow: 0 6px 18px rgba(14, 35, 71, .10);
+}
+
+.det-curso .icon-aula {
+  font-size: 1.4rem;
+}
+
+.det-curso .info-aula h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0b2240;
+}
+
+.det-curso .info-aula p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.det-curso .menu-aula {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* --- Submissões de testes --- */
+.det-curso .resposta-teste {
+  margin-top: 1rem;
+  background: #f8fbff;
+  border: 1px solid #dbeafe;
+  border-left: 4px solid #2a6ca6;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.det-curso .upload-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.det-curso .upload-label span {
+  background-color: #2a6ca6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: transform 0.15s ease;
+}
+
+.det-curso .upload-label span:hover {
+  transform: translateY(-1px);
+}
+
+.det-curso .upload-label input[type="file"] {
+  display: none;
+}
+
+.det-curso .ficheiro-submetido {
+  background-color: #eef6ff;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.det-curso .ficheiro-submetido p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.det-curso .ficheiro-submetido .botoes-submissao {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.det-curso .btn-submeter,
+.det-curso .btn-remover {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  transition: filter 0.15s ease;
+}
+
+.det-curso .btn-submeter {
+  background-color: #2a6ca6;
+}
+
+.det-curso .btn-remover {
+  background-color: #dc3545;
+}
+
+.det-curso .btn-submeter:hover,
+.det-curso .btn-remover:hover {
+  filter: brightness(.95);
+}
+
+.det-curso .mensagem-submetido {
+  background-color: #eaffea;
+  border: 1px solid #22c55e;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: #166534;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* --- Estado do curso (badge) --- */
+.det-curso .estado-curso {
+  display: inline-block;
+  padding: 6px 10px;
+  font-weight: 900;
+  border-radius: 8px;
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.det-curso .estado-curso.poriniciar {
+  background-color: #fff3cd;
+  color: #7c5b00;
+}
+
+.det-curso .estado-curso.emcurso {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.det-curso .estado-curso.terminado {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* --- Avisos de inscrição --- */
+.det-curso .badge-success {
+  background-color: #22c55e;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 900;
+  margin-top: 10px;
+  margin-right: 10px;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.det-curso .badge-warning {
+  background: #ffd966;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+.det-curso .badge-danger {
+  background: #fca5a5;
+  color: #7f1d1d;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 640px) {
+  .det-curso .tabs {
+    gap: 1rem;
+  }
+  .det-curso .tabs button {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+  .det-curso .item-tab {
+    padding: 0.85rem;
+  }
+}

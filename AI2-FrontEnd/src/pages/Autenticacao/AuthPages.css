@@ -1,0 +1,345 @@
+
+.pagina-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: radial-gradient(circle at top left, #39639D 0%, #00B0EB 100%);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px;
+}
+
+.container-login {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px; 
+  width: 100%;
+  align-items: center;
+}
+
+.lado-texto {
+  flex: 1;
+  text-align: left;
+  color: #FFFFFF;
+  max-width: 500px;
+  margin-right: 100px;
+}
+
+.lado-texto h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.lado-texto h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #D1E7FF;
+  margin-bottom: 1.25rem;
+}
+
+.lado-texto p {
+  font-size: 1.2rem;
+  max-width: 450px;
+  line-height: 1.7;
+  color: #D1E7FF;
+  margin-bottom: 1.25rem;
+}
+
+.formulario-login {
+  flex: 1;
+  background-color: #e3f2f7;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-formulario {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #39639D;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.formulario-login label {
+  margin-bottom: 0.75rem;
+  color: #39639D;
+  font-size: 1.1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.formulario-login form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formulario-login input {
+  background-color: #ffffff;
+  border: 2px solid #2A406C;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 2rem;
+  color: #39639D;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+.formulario-login input::placeholder {
+  color: #aebfd7;
+}
+
+.formulario-login input:focus {
+  outline: none;
+  border-color: #00B0EB;
+}
+
+.formulario-login select {
+  background-color: #FFFFFF;
+  border: 2px solid #39639D;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 2rem;
+  color: #2A406C;
+  font-size: 1.1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.formulario-login select:focus {
+  outline: none;
+  border-color: #00B0EB;
+}
+
+.formulario-login button {
+  padding: 16px;
+  background-color: #39639D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1.5rem;
+}
+
+.formulario-login button:hover {
+  background-color: #446a9e;
+  transform: translateY(-2px);
+}
+
+.formulario-login button:disabled {
+  background-color: #66D9F2;
+  cursor: not-allowed;
+}
+
+.erro {
+  color: #FF9999;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.sucesso {
+  color: #99FF99;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.link-registo {
+  margin-top: 1.5rem;
+  color: #2A406C;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.registo-link {
+  color: #39639D;
+  text-decoration: underline;
+}
+
+.registo-link:hover {
+  color: #5494ee;
+}
+
+.formulario-registo {
+  flex: 1;
+  background-color: #e3f2f7;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titulo-formulario-registo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #39639D;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formulario-registo label {
+  margin-bottom: 0.75rem;
+  color: #39639D;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.formulario-registo form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formulario-registo input {
+  background-color: #ffffff;
+  border: 2px solid #2A406C;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  color: #39639D;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.formulario-registo input::placeholder {
+  color: #aebfd7;
+}
+
+.formulario-registo input:focus {
+  outline: none;
+  border-color: #00B0EB;
+}
+
+.formulario-registo select {
+  background-color: #FFFFFF;
+  border: 2px solid #39639D;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 1.5rem;
+  color: #2A406C;
+  font-size: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+}
+
+.select-container {
+  position: relative;
+  width: 100%;
+}
+
+.select-container select {
+  padding-right: 40px; 
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+}
+
+.select-container select:focus {
+  outline: none;
+  border-color: #00B0EB;
+}
+
+.select-icon {
+  position: absolute;
+  right: 12px;
+  top: 35%;
+  transform: translateY(-50%);
+  pointer-events: none; 
+  color: #2A406C;
+  font-size: 0.90rem;
+  transition: color 0.3s ease; 
+}
+
+.select-container:focus-within .select-icon,
+.select-icon.selected {
+  color: #00B0EB; 
+}
+
+.select-icon:hover {
+  color: #00B0EB; 
+}
+
+
+.formulario-registo button {
+  padding: 14px;
+  background-color: #39639D;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.formulario-registo button:hover {
+  background-color: #446a9e;
+  transform: translateY(-2px);
+}
+
+.formulario-registo button:disabled {
+  background-color: #66D9F2;
+  cursor: not-allowed;
+}
+
+.erro {
+  color: #fa1f1f;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.sucesso {
+  color: #35be35;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.link-registo {
+  margin-top: 1rem;
+  color: #2A406C;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.registo-link {
+  color: #39639D;
+  text-decoration: underline;
+}
+
+.registo-link:hover {
+  color: #5494ee;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #FFFFFF inset !important;
+  -webkit-text-fill-color: #2A406C !important;
+  transition: background-color 9999s ease-in-out 0s;
+  font-size: 1rem;
+}

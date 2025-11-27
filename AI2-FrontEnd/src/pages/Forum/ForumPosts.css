@@ -1,0 +1,155 @@
+.pagina-forum-posts {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.forum-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.header-image {
+  max-width: 100%;
+  height: auto;
+}
+.topic-title {
+  font-size: 24px;
+  margin: 10px 0;
+}
+.posts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.btn-add-post {
+  background: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.post-card {
+  display: flex;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.post-votes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background: #f6f7f8;
+  width: 60px;
+}
+.vote-button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+}
+.vote-button.voted-up {
+  color: #ff4500;
+}
+.vote-button.voted-down {
+  color: #7193ff;
+}
+.post-content {
+  flex: 1;
+  padding: 15px;
+}
+.post-content h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.post-content p {
+  margin: 0 0 10px;
+  color: #333;
+}
+.post-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.attachment {
+  max-width: 300px;
+}
+.attachment-image,
+.attachment-video {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+}
+.attachment-pdf {
+  width: 300px;
+  height: 400px;
+  border: none;
+}
+.attachment-link {
+  color: #007bff;
+  text-decoration: none;
+}
+.attachment-link:hover {
+  text-decoration: underline;
+}
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+.btn-view-comments,
+.btn-delete-post {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-view-comments {
+  background: #007bff;
+  color: white;
+}
+.btn-delete-post {
+  background: #dc3545;
+  color: white;
+}
+.no-posts,
+.loading,
+.error {
+  text-align: center;
+  color: #333;
+}
+.error {
+  color: red;
+}
+
+/* Existing CSS remains unchanged */
+.vote-button.loading {
+  opacity: 0.6;
+  cursor: not-allowed;
+  position: relative;
+}
+/* Optional: Add a spinner (using a pseudo-element or icon) */
+.vote-button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}

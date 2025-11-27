@@ -1,0 +1,27 @@
+/* 🌙 Variáveis de Tema Claro e Escuro */
+:root {
+  --bg: #f7f9fc;
+  --text: #1a202c;
+  --subtext: #555;
+  --table-bg: white;
+  --thead-bg: #eef2f6;
+  --btn-aprovar-bg: #16a34a;
+  --btn-aprovar-hover: #15803d;
+  --btn-rejeitar-bg: #dc2626;
+  --btn-rejeitar-hover: #b91c1c;
+}
+
+/* 🌐 Estilo Global */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

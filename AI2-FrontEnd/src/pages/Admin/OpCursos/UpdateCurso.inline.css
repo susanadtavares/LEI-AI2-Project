@@ -1,0 +1,293 @@
+/* —— inputs embutidos no HERO (iguais ao mock) —— */
+.h1-input {
+  width: 100%;
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.2px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  padding: 0;
+  outline: none;
+  margin-top: 20px;
+}
+.tagline-input {
+  width: 100%;
+  max-width: 680px;
+  font-size: 15px;
+  color: #fff;
+  outline: none;
+  background: rgba(255, 255, 255, 0.22);
+  border: 1px dashed transparent;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-top: 12px;
+}
+.editable-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+}
+.editable-row.between {
+  justify-content: space-between;
+}
+.edit-btn {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+.edit-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* —— summary card: linha com valor à direita + botão ✎ —— */
+.summary-card .row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.summary-card .mi {
+  flex: 0 0 28px;
+}
+.summary-card .label {
+  flex: 0 0 150px;
+  font-weight: 800;
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+.summary-card .row-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  justify-content: flex-end;
+}
+.summary-card .value {
+  flex: 1;
+}
+.summary-card .value input {
+  border: 1px solid #edf1f6;
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+.summary-card .value input.small {
+  max-width: 88px;
+}
+.summary-card .value.dual {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.summary-card .value.dual .sep {
+  opacity: 0.6;
+}
+.cell-edit {
+  background: #eef2f7;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: #374151;
+  transition: background 0.2s ease;
+}
+.cell-edit:hover {
+  background: #e3e8f3;
+}
+
+/* —— "Editar Foto" overlay —— */
+.card-cover {
+  position: relative;
+}
+.card-cover .editar-foto {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0) 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.card-cover:hover .editar-foto {
+  opacity: 1;
+}
+.card-cover .editar-foto input {
+  display: none;
+}
+
+/* —— descrição —— */
+.descricao-page {
+  position: relative;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f7f8fb;
+}
+
+/* TEXTAREA: Estado base (editável por padrão) */
+.desc-textarea {
+  width: 100%;
+  border: 1px solid #1f6fb2;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 15px;
+  background: #fff;
+  resize: vertical;
+  transition: all 0.2s ease;
+  cursor: text;
+  color: #111827;
+}
+
+/* TEXTAREA: Estado editável */
+.descricao-page.editing .desc-textarea {
+  background: #fff;
+  border-color: #1f6fb2;
+  cursor: text;
+  color: #111827;
+}
+
+/* TEXTAREA: Estado bloqueado (explícito) */
+.descricao-page.locked .desc-textarea {
+  pointer-events: none !important;
+  background: #f1f5f9 !important;
+  border-color: #e6ebf2 !important;
+  cursor: not-allowed !important;
+  color: #6b7280 !important;
+}
+
+/* Ícones de estado */
+.descricao-page.locked::after {
+  content: "🔒";
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 18px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.descricao-page.editing::after {
+  content: "✎";
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 18px;
+  color: #1f6fb2;
+  pointer-events: none;
+}
+
+/* Barra de ações fixa no fundo */
+.actions-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: #ffffffcc;
+  border-top: 1px solid #e5e7eb;
+}
+.det-curso {
+  padding-bottom: 88px;
+}
+.actions-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+}
+.actions-footer .muted {
+  color: #6b7280;
+  font-size: 14px;
+}
+.actions-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.actions-footer .btn.primary {
+  background: #1f6fb2;
+  color: #fff;
+}
+.actions-footer .btn.primary:hover {
+  filter: brightness(0.96);
+}
+.actions-footer .btn.ghost {
+  background: #eef2f7;
+  color: #0f172a;
+}
+.actions-footer .btn.ghost:hover {
+  background: #e6ebf2;
+}
+
+/* Em ecrãs pequenos, empilha */
+@media (max-width: 640px) {
+  .actions-footer-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions-right {
+    justify-content: flex-end;
+  }
+}
+
+/* Estado bloqueado */
+.row.is-locked {
+  position: relative;
+  opacity: 0.8;
+}
+.row.is-locked *:is(input, select, button, label) {
+  cursor: not-allowed !important;
+}
+.row.is-locked:hover::after {
+  content: "🔒";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+}
+.row.is-locked .label {
+  text-decoration: underline dotted;
+}
+
+/* UpdateCurso.extras.css */
+.summary-card .value select {
+  border: 1px solid #edf1f6;
+  background: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+/* estado bloqueado visual nos inputs do hero */
+.h1-input.is-locked,
+.tagline-input.is-locked {
+  background: rgba(255,255,255,0.14);
+  border: 1px dashed rgba(255,255,255,0.35);
+  cursor: not-allowed;
+}
+
+.h1-input.is-locked,
+.tagline-input.is-locked {
+  background: rgba(255,255,255,0.14);
+  border: 1px dashed rgba(255,255,255,0.35);
+  cursor: not-allowed;
+
+  -webkit-user-select: none; /* Chrome, Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge antigo */
+  user-select: none;         /* padrão */
+}
+
